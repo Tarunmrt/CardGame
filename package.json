@@ -4,12 +4,13 @@
   "description": "Determining poker hand using Deck API ",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require babel-core/register ./test/*.js",
     "start": "./node_modules/.bin/babel-node main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.2.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
@@ -17,6 +18,7 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/register": "^7.6.2",
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.7.0"
+    "babel-preset-env": "^1.7.0",
+    "mocha": "^6.2.2"
   }
 }

@@ -32,19 +32,17 @@ const cardDraw = (id) => {
         cardObj.forEach( card  => {
             value.push(card.value);
             suits.push(card.suit);
-            cards.push(card.code);
+            cards.push(card.value + ' ' + card.suit );
         })
-    console.log("Cards in hand : ", cards);
+    console.log("#### Cards in hand : ", cards.join(), '####');
         const result = winningHand(suits, value);
-        console.log(`### POKER WINNING HAND IS: ${result} ###`);
-        
+        console.log(`#### POKER WINNING HAND IS: ${result} ####`);
     })
 
 }
 
 //Calculating the PokerHand
 const winningHand = (suits, values) => {
-    console.log(values);
     const pokerHand = new Pokerhand(suits, values);
 
     let fourOfAKind = pokerHand.isFourOfAKind_Hand();
@@ -60,8 +58,7 @@ const winningHand = (suits, values) => {
         return('FOUR OF A KIND')
     } else if (threeOfAKind && twoPair){
         return('FULL HOUSE')
-    } else if (flush && !straight){
-        return("FLUSH")
+    } else if (flush && !straight){        return("FLUSH")
     } else if (!flush && straight){
         return('STRAIGHT')
     } else if (threeOfAKind){
