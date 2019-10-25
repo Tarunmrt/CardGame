@@ -2,6 +2,7 @@
 import request from 'request'
 import Pokerhand from "./Pokerhand";
 
+//To get the Deck_ID 
 const getDeckID = () =>{
         let getValues = {
             method: 'GET',
@@ -10,10 +11,11 @@ const getDeckID = () =>{
     request(getValues, function (error, response, body) {
         if (error) throw new Error(error);
         let data = JSON.parse(body);
-        cardDraw(data.deck_id);
+        cardDraw(data.deck_id); 
     });
 }
 
+// using the Deck_ID, draw five cards
 const cardDraw = (id) => {
     let cards= [];
     let value= [];
@@ -34,21 +36,23 @@ const cardDraw = (id) => {
         })
     console.log("Cards in hand : ", cards);
         const result = winningHand(suits, value);
-        console.log('### WINNING HAND IS: ###', result, "###");
+        console.log(`### POKER WINNING HAND IS: ${result} ###`);
+        
     })
 
 }
 
+//Calculating the PokerHand
 const winningHand = (suits, values) => {
     console.log(values);
     const pokerHand = new Pokerhand(suits, values);
 
-    let fourOfAKind = pokerHand.isFourOfAKind();
-    let flush = pokerHand.isFlush();
-    let straight = pokerHand.isStraight();
-    let threeOfAKind = pokerHand.isThreeOfAKind();
-    let twoPair = pokerHand.isHaveTwoPair();
-    let onePair = pokerHand.isOnePair();
+    let fourOfAKind = pokerHand.isFourOfAKind_Hand();
+    let flush = pokerHand.isFlush_Hand();
+    let straight = pokerHand.isStraight_Hand();
+    let threeOfAKind = pokerHand.isThreeOfAKind_Hand();
+    let twoPair = pokerHand.isHaveTwoPair_Hand();
+    let onePair = pokerHand.isOnePair_Hand();
 
     if(flush && straight){
        return('STRAIGHT FLUSH');

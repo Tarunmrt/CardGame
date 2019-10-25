@@ -5,14 +5,15 @@ class Pokerhand {
         this.symbolToNum(cardsValues);
     }
 
+    //Cards faces convert to string integer number
     symbolToNum(cardsValues){
         cardsValues.forEach(value => {
-            this.cardValues.push(value == 'ACE' ? '1' : value == 'JACK' ? '11' : value == 'QUEEN' ? '12' : value == 'KING' ? '13' : value);
+            this.cardValues.push(value == 'KING' ? '13' : value == 'QUEEN' ? '12' : value == 'JACK' ? '11' : value == 'ACE' ? '1' : value);
         })
         this.cardValues.sort(function(a,b){return b-a });
     }
 
-    isStraight(){
+    isStraight_Hand(){
         let cards = this.cardValues;
         for(let i = 0; i < 4; i++) {
             if(parseInt(cards[i]) + 1 != parseInt(cards[i + 1])) {
@@ -22,7 +23,7 @@ class Pokerhand {
         return true;
     }
 
-    isFlush(){
+    isFlush_Hand(){
         let suits = this.cardSuits;
         for(let i = 0; i < 4; i++) {
             if(suits[0] + 1 != suits[i + 1]) {
@@ -32,7 +33,7 @@ class Pokerhand {
         return true;
     }
 
-    isFourOfAKind(){
+    isFourOfAKind_Hand(){
         let cards = this.cardValues;
         for(let i = 0; i < 5; i++){
             let cardCount = 0;
@@ -44,7 +45,7 @@ class Pokerhand {
         return false;
     }
 
-    isThreeOfAKind(){
+    isThreeOfAKind_Hand(){
         let cards = this.cardValues;
         for (let i = 0; i < 5; i++){
             let count = 0;
@@ -56,7 +57,7 @@ class Pokerhand {
         return false;
     }
 
-    isHaveTwoPair() {
+    isHaveTwoPair_Hand() {
         let cards = this.cardValues;
         let pairsFound = 0;
         for (let i = 0; i < 5; i++){
@@ -75,7 +76,7 @@ class Pokerhand {
         }
         return false;
     };
-    isOnePair(){
+    isOnePair_Hand(){
         let cards = this.cardValues
         for (let i = 0; i < 5; i++){
             let count = 0;
