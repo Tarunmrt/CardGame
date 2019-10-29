@@ -95,7 +95,7 @@ describe('Winning Hand Evalutor', function() {
         const pokerHand = new Pokerhand(mockDataNotOnePair.suits, mockDataNotOnePair.value);
         expect(pokerHand.isOnePair_Hand()).to.be.false;
     });
-    it('Should return false for all methods', function() {
+    it('Should return false for all methods: Highcard', function() {
         const pokerHand = new Pokerhand(mockDataHighCard.suits, mockDataHighCard.value);
         expect(pokerHand.isOnePair_Hand()).to.be.false;
         expect(pokerHand.isHaveTwoPair_Hand()).to.be.false;
