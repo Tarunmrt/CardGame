@@ -8,7 +8,7 @@ class Pokerhand {
     //Cards faces convert to string integer number
     symbolToNum(cardsValues){
         cardsValues.forEach(value => {
-            this.cardValues.push(value === 'KING' ? '13' : value === 'QUEEN' ? '12' : value === 'JACK' ? '11' : value === 'ACE' ? '14' : value);
+            this.cardValues.push(value === 'ACE' ? '14' : value === 'KING' ? '13' : value === 'QUEEN' ? '12' : value === 'JACK' ? '11' : value);
         })
         this.cardValues.sort(function(a,b){return b-a });
     }

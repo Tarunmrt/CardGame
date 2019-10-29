@@ -2,6 +2,7 @@ import Pokerhand from "../Pokerhand";
 import { expect } from 'chai'
 
 const mockDataRoyalStrFlush = {suits: ['HEARTS', 'HEARTS','HEARTS','HEARTS','HEARTS'], value: [ 'ACE', 'KING', 'QUEEN', 'JACK', '10' ]};
+const mockDataNotRoyalStrFlush = {suits: ['HEARTS', 'HEARTS','HEARTS','HEARTS','HEARTS'], value: [ 'KING', 'KING', 'QUEEN', 'JACK', '10' ]};
 const mockDataStrFlush = {suits: ['SPADES','SPADES','SPADES', 'SPADES', 'SPADES'], value: [ '10', '9', '8', '7', '6' ]};
 const mockDataFourOfAKind = {suits: ['CLUBS', 'CLUBS', 'DIAMONDS', 'SPADES', 'HEARTS'], value: [ '8', '8', '8', '8', 'KING' ]};
 const mockDataFullHouse = {suits: ['DIAMONDS', 'SPADES', 'DIAMONDS', 'SPADES', 'CLUBS'], value: [ '10', '10', '10', 'JACK', 'JACK' ]};
@@ -14,11 +15,15 @@ const mockDataHighCard = {suits: ['SPADES', 'CLUBS', 'DIAMONDS', 'SPADES', 'CLUB
 
 //SPADES  CLUBS DIAMONDS
 
-describe('Array', function() {
+describe('Winning Hand Evalutor', function() {
     it('Test for royal flush', () =>{
         const pokerHand = new Pokerhand(mockDataRoyalStrFlush.suits, mockDataRoyalStrFlush.value);
         expect(pokerHand.isRoyalFlush()).to.be.true;
     });
+    it('not Royal flush', function() {
+        const pokerHand = new Pokerhand(mockDataNotRoyalStrFlush.suits, mockDataNotRoyalStrFlush.value);
+        expect(pokerHand.isRoyalFlush()).to.be.false;
+    })
     it('Should return true for StrFlush', function() {
         const pokerHand = new Pokerhand(mockDataStrFlush.suits, mockDataStrFlush.value);
         expect(pokerHand.isFlush_Hand() && pokerHand.isStraight_Hand()).to.be.true;
