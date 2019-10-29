@@ -1,13 +1,13 @@
 {
   "name": "cardgame",
   "version": "1.0.0",
-  "description": "Determining poker hand using Deck API ",
+  "description": "Determining poker hand using Deck of card API ",
   "main": "main.js",
   "scripts": {
     "test": "mocha --require babel-core/register ./test/*.js",
     "start": "./node_modules/.bin/babel-node main.js"
   },
-  "author": "",
+  "author": "Tarun Kumar | tarun.kumar@rsystems.com",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",
